@@ -1,0 +1,40 @@
+{% load static %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>marski's blog</title>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" href="{% static 'css/default.css' %}">
+	<link rel="icon" type="image/png" href="{% static 'icon.ico' %}">
+</head>
+<body>
+<div id="header">
+	<div id="menu">
+		<ul>
+			<li{% if request.path == '/' %} class="active"{% endif %}><a href="{% url 'home' %}">home</a></li>
+			<!---<li{% if request.path == '/photos/' %} class="active"{% endif %}><a href="#">photos</a></li>-->
+			<li{% if request.path == '/about/' %} class="active"{% endif %}><a href="{% url 'about' %}">about me</a></li>
+		</ul>
+	</div>
+</div>
+	
+
+<div id="content">
+	{% block content %}
+
+	{% block post %} {% include 'post.html' %} {% endblock post %}
+	{% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}
+
+	{% endblock content %}
+	<div style="clear: both;">&nbsp;</div>
+</div>
+
+<div id="footer">
+	<p><i>"there is a loneliness in this world so great<br>
+		that you can see it in the slow movement of<br>
+		the hands of a clock."</p></i>
+</div>
+</html>

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block post %} 
+<div id="colOne">
+    <div class="post">
+        <h2 class="title"><i>{{ post.title }}</i></h2>
+        <h3 class="posted"> {{ post.timestamp|date:"M d, Y" }} by {{ post.author }}</h3>
+        <div class="story">
+            <p>{{ post.content }}</p>
+        </div>
+        <div class="meta">
+            {% for category in post.categories.all %}
+            <p>filed under <a href="{% url 'category_posts' category.slug %}" class="category">
+                    {{category}}
+                </a></a>
+            </p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock post %}

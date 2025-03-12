@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block post %}
+<div id="colOne">
+    <div id="search-header">
+        <p>You searched for "{{ query }}".</p>
+    </div>
+    <div id="search-content">
+        {% if post_results %}
+            {% for post in post_results %}
+                <div class="post">
+                    <h2 class="title"><i><a href="{% url 'post' post.slug %}"><span>{{ post.title }}</span></a></i></h2>
+                    <h3 class="posted">{{ post.timestamp|date:"M d, Y" }} by {{ post.author }}</h3>
+                    <div class="story">
+                        <p>{{ post.content|truncatewords:50 }}&nbsp;&nbsp;
+                            {% if post.slug %}
+                                <a href="{% url 'post' slug=post.slug %}">&raquo;</a>
+                            {% endif %}
+                        </p>
+                    </div>
+                    <div class="meta">
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No posts found.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock post %}

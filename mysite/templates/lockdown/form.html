@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% block post %} {% include 'post.html' %} {% endblock post %}
+{% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}
+<div id="colOne">
+    <form method="post">
+        {% csrf_token %}
+        <label for="password"><i>enter password:</i></label>
+        <input type="password" id="password" name="password">
+        <button type="submit">submit</button>
+    </form>
+</div>
+{% endblock content %}

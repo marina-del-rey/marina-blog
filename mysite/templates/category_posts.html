@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block post %} 
+<div id="colOne">
+    <div class="post">
+        <h2 class="title"><i>{{ category.title }}</i></h2>
+        <div class="story">
+            <p><b>posts in this category:</b></p>
+            <ul>
+                {% for post in posts %}
+                <li><a href="{% url 'post' post.slug %}">{{ post.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="meta">
+
+        </div>
+    </div>
+</div>
+{% endblock post %}

@@ -1,0 +1,32 @@
+{% load static %}
+
+<div id="colTwo">
+    <ul>
+        <li>
+            <h2><span>Search</span></h2>
+            <form action="{% url 'search' %}" method="GET" class="search-form">
+                <div>
+                    <input type="search" id="textfield1" name="search" size="18" />
+                    <!--<input type="submit" id="submit1" name="submit" value="search" />-->
+                </div>
+            </form>
+        </li>
+        <li>
+            <h2><span>Categories</span></h2>
+            <ul>
+                {% for category in categories %}
+                <li>
+                    <a href="{% url 'category_posts' category.slug %}">{{ category.title }}</a>
+                    ({{ category.post_count | default:"0" }})
+                </li>
+                {% endfor %}
+            </ul>
+        </li>
+        <li>
+            <h2><span>Random Image</span></h2>
+            <ul>
+                <img src="{% static 'images/random/1.jpg' %}" alt="" width="175" height="175" />
+            </ul>
+        </li>
+    </ul>
+</div>
