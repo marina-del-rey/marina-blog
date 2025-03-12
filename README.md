@@ -33,7 +33,7 @@ python manage.py runserver
 
 ## Setting Up Environment Variables
 Create a `.env` file inside the `mysite` directory and add:
-```bash
+```env
 LOCKDOWN_PASSWORD=password1
 ```
 Replace `password1` with your desired password for protected pages.
